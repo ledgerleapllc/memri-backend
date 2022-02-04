@@ -1107,7 +1107,7 @@ class Helper
     // $request->enableTestMode();
     $finalGrant = FinalGrant::where('proposal_id', $proposal->id)->first();
     $request->setTemplateId('a77ecd6d708736d6ae0e2d8d35e5e54938c83436');
-    $subject = "Grant $proposal->id - Sign to activate DEVxDAO grant!";
+    $subject = "Grant $proposal->id - Sign to activate Memri grant!";
     $request->setSubject($subject);
     if ($proposal->pdf) {
       $urlFile = public_path() . $proposal->pdf;
@@ -1212,7 +1212,7 @@ class Helper
       'Send Signature Request',
       'send_signature_request',
       json_encode([
-        'Subject' => "Grant $proposal->id - Sign to activate DEVxDAO grant!",
+        'Subject' => "Grant $proposal->id - Sign to activate Memri grant!",
         'Signatures' => $signatures->only(['email', 'role', 'signed']),
       ])
     );
@@ -1499,7 +1499,7 @@ class Helper
 
   public static function inviteKycKangaroo($invitation_name, $email, $invite_id = null)
   {
-    $url = config('services.kyc_kangaroo.url') . '/api/devxdao/invite-user';
+    $url = config('services.kyc_kangaroo.url') . '/api/memri/invite-user';
     $response = Http::withHeaders([
       'Content-Type' => 'application/json',
       'Authorization' => 'Token ' . config('services.kyc_kangaroo.token')
@@ -1513,7 +1513,7 @@ class Helper
 
   public static function getInviteKycKangaroo($invite_id)
   {
-    $url = config('services.kyc_kangaroo.url') . '/api/devxdao/get-invite';
+    $url = config('services.kyc_kangaroo.url') . '/api/memri/get-invite';
     $response = Http::withHeaders([
       'Content-Type' => 'application/json',
       'Authorization' => 'Token ' . config('services.kyc_kangaroo.token')

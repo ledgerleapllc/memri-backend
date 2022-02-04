@@ -454,7 +454,7 @@ class OpsController extends Controller
         $proposal = Proposal::find($milestone->proposal_id);
         $op = User::find($proposal->user_id);
         if (Helper::checkSendMailTriggerMember('PM Reviewer assigned')) {
-            $title = "Reviewer assigned to your DEVxDAO Grant Milestone";
+            $title = "Reviewer assigned to your Memri Grant Milestone";
             $body = "$op->first_name, <br><br>A reviewer has been assigned to review the milestone you submitted towards your grant $proposal->title. Please allow up to a week for this process and look our for our next email informing you of your submission review status.<br><br>
             If your milestone is approved as delivered, your proposal will moving automatically to voting. If it needs work, the review team will reply with any needed notes.<br> <br>
             Thank you for being part of the program, <br> <br>
@@ -710,7 +710,7 @@ class OpsController extends Controller
             if ($collection->count() ==  $filteredCheck) {
                 $status = 'approved';
                 if (Helper::checkSendMailTriggerMember('Milestone code review Passed')) {
-                    $title = "Your DEVxDAO Grant Milestone is Approved";
+                    $title = "Your Memri Grant Milestone is Approved";
                     $body = "$op->first_name,<br> <br>Nice work! Your milestone submission for <b> $proposal->title </b> is Approved. This will now  move forward to voting. Please allow up to 2 weeks for the voting and look our for a next email regarding the votes. <br> <br>Thank you for being part of the program, <br> <br>  DxD Program Management";
                     Mail::to($op)->send(new UserAlert($title, $body));
                 }
@@ -721,9 +721,9 @@ class OpsController extends Controller
                 $note_fail = Helper::getNotesFailSubmitReview($request->all());
                 $status = 'denied';
                 if (Helper::checkSendMailTriggerMember('Milestone code review Failed')) {
-                    $title = "Your DEVxDAO Grant Milestone needs some work";
+                    $title = "Your Memri Grant Milestone needs some work";
                     $body = "$op->first_name,<br> <br>Unfortunately your milestone submission needs a few adjustments before it can be considered for voting and payment.
-                    <br> <br> Please see the notes below and submit this milestone again in the DEVxDAO portal when these items are remedied. <br> <b> $note_fail </b> <br>
+                    <br> <br> Please see the notes below and submit this milestone again in the Memri portal when these items are remedied. <br> <b> $note_fail </b> <br>
                     Thank you for being part of the program,  <br> <br>  DxD Program Management";
                     Mail::to($op)->send(new UserAlert($title, $body));
                 }

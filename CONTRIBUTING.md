@@ -1,4 +1,4 @@
-## Contributing to the DevxDao Grant Portal
+## Contributing to the Memri Backend Portal
 
 ### Please follow these guidelines if you want to contribute to this project
 

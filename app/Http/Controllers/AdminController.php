@@ -3770,7 +3770,7 @@ class AdminController extends Controller
 			->whereNotIn('id', $user_ids)
 			->get();
 		foreach ($users as $user) {
-			Mail::to($user)->send(new UserAlert('A new DEVxDAO survey needs your responses', 'Please log in to your portal to complete your survey. This is mandatory!'));
+			Mail::to($user)->send(new UserAlert('A new Memri survey needs your responses', 'Please log in to your portal to complete your survey. This is mandatory!'));
 		}
 		return [
 			'success' => true
@@ -4957,7 +4957,7 @@ class AdminController extends Controller
 			->whereNotIn('id', $user_ids)
 			->get();
 		foreach ($users as $user) {
-			Mail::to($user)->send(new UserAlert('A new DEVxDAO survey needs your responses', 'Please log in to your portal to complete your survey. This is mandatory!'));
+			Mail::to($user)->send(new UserAlert('A new Memri survey needs your responses', 'Please log in to your portal to complete your survey. This is mandatory!'));
 		}
 		return [
 			'success' => true

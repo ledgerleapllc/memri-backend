@@ -16,7 +16,7 @@ class UpdateTriggerMemberEmail3 extends Migration
     {
         $item = [
             'title' => 'New Survey',
-            'subject' => 'A new DEVxDAO survey needs your responses',
+            'subject' => 'A new Memri survey needs your responses',
             'content' => "Please log in to your portal to complete your survey. This is mandatory!",
     
         ];

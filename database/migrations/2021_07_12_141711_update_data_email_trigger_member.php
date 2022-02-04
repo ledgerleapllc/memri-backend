@@ -16,7 +16,7 @@ class UpdateDataEmailTriggerMember extends Migration
     {
         $item = [
             'title' => 'VA daily summary',
-            'subject' => 'Daily Voting Associate summary for DEVxDAO',
+            'subject' => 'Daily Voting Associate summary for Memri',
             'content' => "Hello VA's <br><br>Please review the following proposals that entered discussions today:<br> [LIST] <br>[Proposal Tittle Discussions] <br><br> 
                 And also the proposals that have started a vote today. Don?t forget to vote:<br>[LIST]<br> [Proposal started vote today] <br> <br>
                 Remember, voting is essential to being a Voting Associate. Logging in once a day and voting makes sure you do

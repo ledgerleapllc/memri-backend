@@ -29,7 +29,7 @@ class UpdateDataTriggerAdminEmail extends Migration
 
         $item = [
             'title' => 'VA daily summary',
-            'subject' => 'Daily Voting Associate summary for DEVxDAO',
+            'subject' => 'Daily Voting Associate summary for Memri',
             'content' => "Hello VA's <br><br>Please review the following proposals that entered discussions today:<br>[Proposal Tittle Discussions] <br>
                 And also the proposals that have started a vote today. Don?t forget to vote:<br> [Proposal started vote today] <br>
                 Votes ending within 24 hours that have not reached quorum: <br> [Proposal not reached quorum] <br>

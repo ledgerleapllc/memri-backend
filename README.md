@@ -1,18 +1,14 @@
 <p align="center" padding-top="100">
-	<img src="https://ledgerleap.com/web/images/devxdao-logo.png" width="400">
+	<img src="https://ledgerleap.com/web/images/memri-logo.png" width="400">
 </p>
 
-## DevxDao Grant Portal Backend
+## Memri Portal Backend
 
-The DevxDao's grant and voting associates portal hosted at http://portal.devxdao.com
+The Memri's grant and voting associates portal hosted at https://memri.stage.ledgerleap.com
 
 This is the backend repo of the portal. Frontends for this backend API are listed below.
 
-Main portal: https://github.com/ledgerleapllc/devxdao-frontend
-
-Project Management portal: https://github.com/ledgerleapllc/devxdao-pm
-
-Compliance portal: https://github.com/ledgerleapllc/devxdao-compliance
+Main portal: https://github.com/ledgerleapllc/memri-frontend
 
 ### Prerequisites
 
@@ -37,12 +33,12 @@ sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 php -r "unlink('composer-setup.php');"
 ```
 
-Setup the repo according to our VHOST path. Note, the actual VHOST path in this case should be set to **/var/www/devxdao-backend/public**
+Setup the repo according to our VHOST path. Note, the actual VHOST path in this case should be set to **/var/www/memri-backend/public**
 
 ```bash
 cd /var/www/
-git clone https://github.com/ledgerleapllc/devxdao-backend
-cd devxdao-backend
+git clone https://github.com/ledgerleapllc/memri-backend
+cd memri-backend
 ```
 
 Install packages and setup environment
@@ -76,7 +72,7 @@ php artisan passport:install
 php artisan config:clear
 php artisan route:clear
 php artisan cache:clear
-(crontab -l 2>>/dev/null; echo "* * * * * cd /var/www/devxdao-backend && php artisan schedule:run >> /dev/null 2>&1") | crontab -
+(crontab -l 2>>/dev/null; echo "* * * * * cd /var/www/memri-backend && php artisan schedule:run >> /dev/null 2>&1") | crontab -
 ```
 
 You may also have to authorize Laravel to write to the storage directory

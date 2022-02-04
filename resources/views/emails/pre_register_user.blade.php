@@ -173,7 +173,7 @@
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 20px; padding-left: 20px; padding-top: 50px; padding-bottom: 15px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
 											<div style="color:#393d47;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:50px;padding-right:20px;padding-bottom:15px;padding-left:20px;">
 												<div class="txtTinyMce-wrapper" style="line-height: 1.2; font-size: 12px; font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; color: #393d47; mso-line-height-alt: 14px;">
-													<p style="font-size: 22px; line-height: 1.2; word-break: break-word; font-family: Roboto, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 26px; margin: 0;"><span style="font-size: 22px;"><strong>Thank your for your interest in the DEVxDAO.</strong></span></p>
+													<p style="font-size: 22px; line-height: 1.2; word-break: break-word; font-family: Roboto, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 26px; margin: 0;"><span style="font-size: 22px;"><strong>Thank your for your interest in Memri.</strong></span></p>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
@@ -183,7 +183,7 @@
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 20px; padding-left: 20px; padding-top: 50px; padding-bottom: 15px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
 											<div style="color:#393d47;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:50px;padding-right:20px;padding-bottom:15px;padding-left:20px;">
 												<div class="txtTinyMce-wrapper" style="line-height: 1.2; font-size: 12px; font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; color: #393d47; mso-line-height-alt: 14px;">
-													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; font-family: Roboto, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px; margin: 0; padding-bottom: 5px;">We herewith acknowledge receipt of your email and will be in touch in due course with more information. Please note that not all applications / indications of interest qualify for further processing. We are excited to welcome you to our community after the required legal arrangements have been finalized. All legal affairs that pertain to grants and all other DEVxDAO legal engagements are conducted through the Emerging Technology Association and no legal relationship will be formed between you and the DEVxDAO.</p>
+													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; font-family: Roboto, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px; margin: 0; padding-bottom: 5px;">We herewith acknowledge receipt of your email and will be in touch in due course with more information. Please note that not all applications / indications of interest qualify for further processing. We are excited to welcome you to our community after the required legal arrangements have been finalized. All legal affairs that pertain to grants and all other Memri legal engagements are conducted through the Emerging Technology Association and no legal relationship will be formed between you and Memri.</p>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->

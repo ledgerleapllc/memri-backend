@@ -34,7 +34,7 @@ class ComplianceReview extends Mailable
     {
         if (str_contains( url('/'), 'localhost')) {
             // test for local
-            $linkPdf = 'https://backend.devxdao.com/storage/pdf/proposal/proposal_1.pdf';
+            $linkPdf = 'https://memri-backend.stage.ledgerleap.com/storage/pdf/proposal/proposal_1.pdf';
         } else {
             $linkPdf = asset($this->proposal->pdf);
         }
