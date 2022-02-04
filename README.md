@@ -1,5 +1,5 @@
 <p align="center" padding-top="100">
-	<img src="https://ledgerleap.com/web/images/memri-logo.png" width="400">
+	<img src="https://ledgerleap.com/web/images/memri-logo.png">
 </p>
 
 ## Memri Portal Backend
