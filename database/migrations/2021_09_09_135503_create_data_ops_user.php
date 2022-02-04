@@ -5,7 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
-use Log;
+use Illuminate\Support\Facades\Log;
 
 class CreateDataOpsUser extends Migration
 {

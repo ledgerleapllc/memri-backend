@@ -6,7 +6,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 use Spatie\Permission\Models\Role;
-use Log;
+use Illuminate\Support\Facades\Log;
 
 
 class CreateDataComplianceUser extends Migration
