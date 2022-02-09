@@ -32,8 +32,8 @@ use App\FinalGrant;
 use App\EmailerTriggerAdmin;
 use App\EmailerTriggerUser;
 use App\EmailerTriggerMember;
-
 use App\Mail\Confirmation;
+use Illuminate\Support\Str;
 
 class InstallController extends Controller
 {
