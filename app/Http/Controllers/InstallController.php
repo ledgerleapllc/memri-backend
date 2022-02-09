@@ -354,7 +354,7 @@ class InstallController extends Controller
 
     public function install() {
 		/* Setting Roles */
-        $role = Role::where(['name' => 'admin'])->first();
+        $role = Role::where(['name' => 'admin', 'guard_name' => 'web'])->first();
         if (!$role) Role::create(['name' => 'admin']);
 
         $role = Role::where(['name' => 'participant'])->first();
