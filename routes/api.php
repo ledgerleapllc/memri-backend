@@ -259,6 +259,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:api']], function () {
 	Route::post('/grant/{grantId}/resend', 'AdminController@resendHellosignGrant');
 	Route::post('/grant/{grantId}/remind', 'AdminController@remindHellosignGrant');
 	Route::post('/milestone-reviews/{milestoneId}/approve', 'AdminController@approveMilestone');
+	Route::post('/milestone-reviews/{milestoneId}/send-to-vote', 'AdminController@sendToVoteMilestone');
 	Route::post('/milestone-reviews/{milestoneId}/deny', 'AdminController@denyMilestone');
 	Route::post('/survey', 'AdminController@submitSurvey');
 	Route::post('/survey/{id}/cancel', 'AdminController@cancelSurvey');

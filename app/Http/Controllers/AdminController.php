@@ -2430,7 +2430,7 @@ class AdminController extends Controller
 			->join('milestone', 'milestone.id', '=', 'milestone_review.milestone_id')
 			->join('proposal', 'milestone.proposal_id', '=', 'proposal.id')
 			->join('users', 'proposal.user_id', '=', 'users.id')
-			->whereIn('milestone_review.status', ['pending', 'active'])
+			->whereIn('milestone_review.status', ['pending'])
 			->select([
 				'milestone_review.milestone_id',
 				'milestone_review.proposal_id',
@@ -2572,6 +2572,82 @@ class AdminController extends Controller
 		return ['success' => false];
 	}
 
+
+	public function sendToVoteMilestone(Request $request, $milestoneId)
+	{
+		$user = Auth::user();
+		if ($user->hasRole('admin')) {
+			$milestoneReview = MilestoneReview::where('milestone_id', $milestoneId)->where('status', 'pending')->first();
+			if (!$milestoneReview) {
+				return [
+					'success' => false,
+					'message' => 'milestone not exist'
+				];
+			}
+			$proposalId = $milestoneReview->proposal_id;
+			$finalGrant = FinalGrant::where('proposal_id', $proposalId)->first();
+			$milestone = Milestone::find($milestoneId);
+
+			$milestoneReview->status = 'approved';
+			$milestoneReview->reviewer = $user->id;
+			$milestoneReview->reviewed_at = now();
+			$milestoneReview->save();
+			Helper::createMilestoneLog($milestoneId, $user->email, $user->id, 'Admin', 'Admin approved the work.');
+			$vote = Vote::where('proposal_id', $proposalId)
+				->where(
+					'type',
+					'informal'
+				)
+				->where('content_type', 'milestone')
+				->where('milestone_id', $milestoneId)
+				->first();
+
+			if (!$vote) {
+				$milestonePosition = Helper::getPositionMilestone($milestone);
+				Helper::createMilestoneLog($milestoneId, null, null, 'System', 'Vote started');
+				Helper::createGrantTracking($milestone->proposal_id, "Milestone $milestonePosition started informal vote", 'milestone_' . $milestonePosition. '_started_informal_vote');
+				// Submit
+				$vote = new Vote;
+				$vote->proposal_id = $proposalId;
+				$vote->type = "informal";
+				$vote->status = "active";
+				$vote->content_type = "milestone";
+				$vote->milestone_id = $milestoneId;
+				$vote->save();
+
+				$finalGrant->milestones_submitted = (int) $finalGrant->milestones_submitted + 1;
+				$finalGrant->save();
+				$emailerData = Helper::getEmailerData();
+				Helper::triggerUserEmail($user, 'Milestone Submitted', $emailerData);
+
+				return ['success' => true];
+			} else {
+				// Re-Submit
+				$finalVote = Vote::where('proposal_id', $proposalId)
+					->where('type', 'formal')
+					->where('content_type', 'milestone')
+					->where('milestone_id', $milestoneId)
+					->orderBy('id', 'desc')
+					->first();
+
+				if ($finalVote && $finalVote->result == "fail") {
+					Helper::createMilestoneLog($milestoneId, null, null, 'System', 'Vote re-started');
+					// Submit
+					$vote = new Vote;
+					$vote->proposal_id = $proposalId;
+					$vote->type = "informal";
+					$vote->status = "active";
+					$vote->content_type = "milestone";
+					$vote->milestone_id = $milestoneId;
+					$vote->save();
+
+					return ['success' => true];
+				}
+			}
+		}
+		return ['success' => false];
+	}
+
 	public function denyMilestone(Request $request, $milestoneId)
 	{
 		$user = Auth::user();
@@ -2586,7 +2662,6 @@ class AdminController extends Controller
 		}
 		if ($user->hasRole('admin')) {
 			$milestoneReview = MilestoneReview::where('milestone_id', $milestoneId)->where('status', 'pending')->first();
-
 			if (!$milestoneReview) {
 				return [
 					'success' => false,
