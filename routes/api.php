@@ -69,7 +69,6 @@ Route::group(['prefix' => 'rfp'], function () {
 	Route::get('/survey/{id}', 'APIController@getSurveyDetail');
 });
 
-
 Route::group(['middleware' => ['auth:api']], function () {
 	// GET
 	Route::get('/me', 'APIController@getMe');
@@ -178,7 +177,6 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth:api']], function () {
 	Route::put('/show-unvoted-informal', 'UserController@checkShowUnvotedInformal');
 	Route::put('/show-unvoted-formal', 'UserController@checkShowUnvotedFormal');
 
-
 	// GET
 	Route::get('/reputation-track', 'UserController@getReputationTrack');
 	Route::get('/reputation-track/export-csv', 'UserController@exportCSVReputationTrack');
@@ -245,7 +243,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:api']], function () {
 	Route::get('/survey-rfp/{id}/result', 'AdminController@getVoteBidSurveyRfp');
 	Route::get('/survey-rfp/{id}/user-not-submit', 'AdminController@getNotSubmittedSurveyRfp');
 
-
 	// POST
 	Route::post('/formal-voting', 'AdminController@startFormalVoting');
 	Route::post('/formal-milestone-voting', 'AdminController@startFormalMilestoneVoting');
@@ -289,7 +286,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:api']], function () {
 
 	Route::put('/pre-register/{recordId}/approve', 'AdminController@approvePreRegister');
 	Route::put('/pre-register/{recordId}/deny', 'AdminController@denyPreRegister');
-
+	
 	Route::put('/user/{userId}/allow-access', 'AdminController@allowAccessUser');
 	Route::put('/user/{userId}/deny-access', 'AdminController@denyAccessUser');
 
@@ -298,7 +295,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:api']], function () {
 	Route::put('/user/{userId}/approve-kyc', 'AdminController@approveKYC');
 	Route::put('/user/{userId}/deny-kyc', 'AdminController@denyKYC');
 	Route::put('/user/{userId}/reset-kyc', 'AdminController@resetKYC');
-
+	
 	Route::put('/proposal/{proposalId}/approve', 'AdminController@approveProposal');
 	Route::put('/proposal/{proposalId}/deny', 'AdminController@denyProposal');
 	Route::put('/proposal/{proposalId}/approve-payment', 'AdminController@approveProposalPayment');
@@ -310,7 +307,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:api']], function () {
 	Route::put('/user/{userId}/kyc-info', 'AdminController@updateKYCinfo');
 
 	Route::put('/milestone/{milestoneId}/paid', 'AdminController@updatePaidMilestone');
-
+	
 	Route::prefix('/teams')->group(function () {
 		Route::get('/', 'AdminController@getListAdmin');
 		Route::post('/invite', 'AdminController@inviteAdmin');
@@ -326,7 +323,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:api']], function () {
 Route::group(['prefix' => 'ops', 'middleware' => ['auth:ops_api']], function () {
 	Route::post('/logout', 'OpsController@logout');
 	Route::get('/me', 'OpsController@getMeOps');
-
+	
 	Route::prefix('/admin')->group(function () {
 		// POST
 		Route::post('/users/create-pa-user', 'OpsController@createPAUser');
@@ -383,7 +380,7 @@ Route::group(['prefix' => 'compliance', 'middleware' => ['auth:compliance_api']]
 		Route::get('/users', 'ComplianceController@getListUser');
 		Route::get('/users/{id}/ip-histories', 'ComplianceController@getIpHistories');
 	});
-
+	
 	Route::prefix('shared')->group(function () {
 		// GET
 		Route::get('/pending-grant-onboardings', 'ComplianceController@getPendingGrantOnboardings');
@@ -406,17 +403,17 @@ Route::group(['prefix' => 'compliance', 'middleware' => ['auth:compliance_api']]
 		Route::get('/payment-address/pending', 'ComplianceController@getPendingAddressPayment');
 		Route::get('/payment-address/current', 'ComplianceController@getCurrentAddressPayment');
 		Route::get('/metrics ', 'AdminController@getMetrics');
-
+		
 		// POST
 		Route::post('/compliance-review/approve', 'ComplianceController@approveComplianceReview');
 		Route::post('/compliance-review/deny', 'ComplianceController@denyComplianceReview');
 		Route::post('/grant/{grantId}/resend', 'AdminController@resendHellosignGrant');
 		Route::post('/grant/{grantId}/remind', 'AdminController@remindHellosignGrant');
-
+		
 		Route::post('/payment-address', 'ComplianceController@createAddressPayment');
 		Route::post('/payment-address-change/{id}/confirm-update', 'ComplianceController@confirmUpdateAddressPayment');
 		Route::post('/payment-address-change/{id}/void', 'ComplianceController@voidAddressPayment');
-
+		
 		// PUT
 		Route::put('/change-password', 'ComplianceController@updatePassword');
 		Route::put('/invoice/{id}/paid', 'ComplianceController@updateInvoicePaid');
