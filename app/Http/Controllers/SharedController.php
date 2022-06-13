@@ -425,8 +425,8 @@ class SharedController extends Controller
 
 		if ($hash) {
 			$data = PreRegister::where('hash', $hash)
-				->where('status', 'approved')
-				->first();
+					->where('status', 'approved')
+					->first();
 		}
 
 		return [
